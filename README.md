@@ -13,7 +13,7 @@ Action creates and pushes a dummy Docker image to the registry with a given tag 
 # Usage
 
 ```yaml
-- uses: rafalkk/remove-dockertag-action@v1
+- uses: ArchieAtkinson/remove-dockertag-action@v1
   with:
     # Name of the Docker tag to delete.
     # (required)
