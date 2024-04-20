@@ -64,6 +64,12 @@ runs:
           echo "GH_API_PREFIX=users" >> $GITHUB_ENV
         fi
 
+    - name: Lowercase Repo Name and Tag
+      id: repo-name-and-tag
+      run: |
+        IMG_NAME=$(echo "${{ github.repository }}:${{ inputs.tag_name }}" | tr '[:upper:]' '[:lower:]')
+        echo "::set-output name=name::$IMG_NAME"
+
 # Dummy Docker image is created and pushed to Github package repository.
     - name: Build and push Docker image
       id: build-push-action
@@ -73,7 +79,7 @@ runs:
         build-args: |
           TIME_STAMP=$CURRENT_TIME
         push: true
-        tags: ghcr.io/${{ github.repository }}:${{ inputs.tag_name }}
+        tags: ghcr.io/${{ steps.repo-name-and-tag.outputs.name }}
 
 # Look for the package that was created in the previous step using its digest.
     - name: Get package id
