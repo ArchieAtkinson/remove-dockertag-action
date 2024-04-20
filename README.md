@@ -63,7 +63,7 @@ jobs:
     - name: Remove Docker Tag
       uses: rafalkk/remove-dockertag-action@v1
       with:
-        tag-name: main
+        tag_name: main
         github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
