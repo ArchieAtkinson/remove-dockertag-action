@@ -103,6 +103,6 @@ runs:
         --method DELETE \
         -H "Accept: application/vnd.github+json" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
-        $(echo "/${{env.GH_API_PREFIX}}/${{github.repository_owner}}/packages/container/${{env.REPO_NAME}}/versions/${{env.GH_package_id}}" | tr '[:upper:]' '[:lower:]') | \
+        $(echo "/${{env.GH_API_PREFIX}}/${{github.repository_owner}}/packages/container/${{env.REPO_NAME}}/versions/${{env.GH_package_id}}" | tr '[:upper:]' '[:lower:]')
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
